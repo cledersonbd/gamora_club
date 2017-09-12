@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'rollbar' => [
+        'access_token' => env('ROLLBAR_TOKEN','4f35fc640059487a83175a9346ba9181'),
+        'level' => env('ROLLBAR_LEVEL','error'),
+    ],
+
 ];
