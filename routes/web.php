@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/settings', 'UsersController@settings')->name('settings');
+
+Route::post('/settings/email','UsersController@email');
+Route::post('/settings/phone','UsersController@phone');
+Route::post('/settings/change-password','UsersController@changePassword');
