@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class UsersController extends Controller
+class SettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function settings(Request $request)
     {
-//        $request->session()->flash('status', 'Task was successful!');
         return view('user.settings');
     }
 
