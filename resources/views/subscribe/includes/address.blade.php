@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <form id="address">
+        <form id="form-address" action="/subscribe/address">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="street">Rua</label>

@@ -79,6 +79,22 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.maskedinput.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery.tmpl.min.js') }}" type="text/javascript"></script>
+    <script>
+        function formSubmit(event,form,success){
+            event.preventDefault();
+            console.log($(form));
+            $.ajax( {
+                type: "POST",
+                url: $(form).attr( 'action' ),
+                data: $(form).serialize(),
+                success: function(response){
+                    success(response);
+                }
+            } );
+
+        }
+    </script>
     @yield('scripts')
 </body>
 </html>

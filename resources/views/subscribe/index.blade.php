@@ -23,7 +23,9 @@
                             <li class="disabled"><a data-toggle="pill" href="#payment">Pagamento</a></li>
                             <li class="disabled"><a data-toggle="pill" href="#comfirm">Confirmar</a></li>
                         </ul>
+                        <div style="display: none;" id="errors-alert" class="alert alert-danger">
 
+                        </div>
                         <div class="tab-content">
                             <div id="address" class="tab-pane fade in active">
                                 @include('subscribe.includes.address')
@@ -58,10 +60,23 @@
                         return false;
                     }
                 });
-                $('form').submit(function(event){
-                   event.preventDefault();
-                   return false;
+                $('#form-address').submit(function(event){
+                    $('#errors-alert').hide();
+                    formSubmit(event,this,function(response){
+                        console.log(response);
+                    },function(response){
+                        $('#errors-alert').show();
+                        $('#errors-alert').html('');
+                        $.each(response.responseJSON.errors,function(key,value){
+                            $.tmpl( "<li>${message}</li>", { "message" : value }).appendTo( '#errors-alert' );
+                        });
+                        console.log(response.responseJSON.errors);
+                    });
+                    return false;
                 });
             });
+        </script>
+        <script id="errors-template">
+
         </script>
 @endsection

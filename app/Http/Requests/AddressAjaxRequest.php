@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ChangeEmailRequest extends FormRequest
+class AddressAjaxRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,12 @@ class ChangeEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required'
+            "street" => 'required',
+            "number" => 'required',
+            "extra" => 'required',
+            "cep" => 'required',
+            "city" => 'required',
+            "state" => 'required'
         ];
     }
 
@@ -36,7 +41,11 @@ class ChangeEmailRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'Você precisa preencher seu email',
+            "street.required" => 'Você precisa preencher a sua rua ',
+            "number.required" => 'Você precisa preencher o seu número',
+            "cep.required" => 'Você precisa preencher o seu cep',
+            "city.required" => 'Você precisa preencher a sua cidade',
+            "state.required" => 'Você precisa preencher o seu estado'
         ];
     }
 }

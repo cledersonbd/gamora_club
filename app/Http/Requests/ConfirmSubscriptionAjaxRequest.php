@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ChangeEmailRequest extends FormRequest
+class ConfirmSubscriptionAjaxRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ChangeEmailRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,19 +24,7 @@ class ChangeEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required'
-        ];
-    }
-
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'email.required' => 'Você precisa preencher seu email',
+            //
         ];
     }
 }
