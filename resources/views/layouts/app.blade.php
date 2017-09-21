@@ -13,6 +13,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        .alert-danger {
+            background-color: #ffffff ;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -81,7 +86,7 @@
     <script src="{{ asset('js/jquery.maskedinput.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/jquery.tmpl.min.js') }}" type="text/javascript"></script>
     <script>
-        function formSubmit(event,form,success){
+        function formSubmit(event,form,success,error){
             event.preventDefault();
             console.log($(form));
             $.ajax( {
@@ -90,6 +95,8 @@
                 data: $(form).serialize(),
                 success: function(response){
                     success(response);
+                },error: function(response){
+                    error(response);
                 }
             } );
 
