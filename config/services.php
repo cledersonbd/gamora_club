@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -40,4 +39,19 @@ return [
         'level' => env('ROLLBAR_LEVEL','error'),
     ],
 
+    'pagseguro' => [
+//        'app' => [
+//            'id' => 'app8645223602',
+//            'key' => 'ACAD16678F8FCC87740D5FA84B1F9641',
+//        ],
+//        'seller' => [
+//            'email' => 'v35249451689875999797@sandbox.pagseguro.com.br',//sandbox
+//            'senha' => '12u66j993p866551',
+//            'publickey' => 'PUB38386CCE93D14CDBA30F27CD21A2178C'
+//        ],
+        'email' => 'vitor.lobs@gmail.com',
+//        'token' => 'DAF005C670FA4D13B0A77897580F4EEB',//production
+        'token' => '7D0F33B7E2A34976A42E713F84FF1585',//sandbox
+
+    ]
 ];

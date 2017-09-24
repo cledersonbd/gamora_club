@@ -4,28 +4,29 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="street">Rua</label>
-                <input type="text" class="form-control" name="street" placeholder="Rua" value="">
+                <input type="text" class="form-control" name="street" placeholder="Rua" value="{{$address->street}}">
             </div>
             <div class="form-group">
                 <label for="number">Número</label>
-                <input type="text" class="form-control" name="number" placeholder="Número" value="">
+                <input type="text" class="form-control" name="number" placeholder="Número" value="{{$address->number}}">
             </div>
             <div class="form-group">
                 <label for="extra">Complemento</label>
-                <input type="text" id="extra" class="form-control" name="extra" placeholder="Complemento" value="">
+                <input type="text" id="extra" class="form-control" name="extra" placeholder="Complemento" value="{{$address->extra}}">
             </div>
             <div class="form-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" class="form-control" name="cep" placeholder="CEP" value="">
+                <input type="text" id="cep" class="form-control" name="cep" placeholder="CEP" value="{{$address->cep}}">
             </div>
             <div class="form-group row">
                 <div class="col-md-10 col-xs-8 col-lg-10">
                     <label for="city">Cidade</label>
-                    <input type="text" class="form-control" name="city" placeholder="City" value="">
+                    <input type="text" class="form-control" name="city" placeholder="City" value="{{$address->city}}">
                 </div>
                 <div class="col-md-2 col-xs-4 col-lg-2">
                     <label for="state">Estado</label>
-                        <select class="form-control" name="state" data-live-search="true">
+                        <select class="form-control" name="state" data-value="{{$address->state}}" data-live-search="true">
+                            <option value="">Selecione</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
                             <option value="AP">AP</option>
@@ -60,3 +61,20 @@
         </form>
     </div>
 </div>
+
+<script>
+    function subscriptionAddressPage(){
+        $(function($){
+            $("#form-address [name='state']").val($("#form-address [name='state']").data('value'));
+            $("#cep").mask("99999-999",{placeholder:"00000-000"});
+        });
+        $('#form-address').submit(function(event){
+            $('#errors-alert').hide();
+            formSubmit(event,this,function(response){
+                $('#payment-pill').removeClass('disabled');
+                $('a[href="#payment"]').tab('show');
+            },subscriptionAjaxError);
+            return false;
+        });
+    }
+</script>

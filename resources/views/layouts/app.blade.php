@@ -15,7 +15,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <style>
         .alert-danger {
-            background-color: #ffffff ;
+            background-color: rgba(255, 0, 16, 0.51);
         }
     </style>
 </head>

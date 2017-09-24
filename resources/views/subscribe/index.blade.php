@@ -20,7 +20,7 @@
                     @endif
                         <ul class="nav nav-pills">
                             <li class="active"><a data-toggle="pill" href="#address">Localização</a></li>
-                            <li class="disabled"><a data-toggle="pill" href="#payment">Pagamento</a></li>
+                            <li id="payment-pill" class="disabled"><a data-toggle="pill" href="#payment">Pagamento</a></li>
                             <li class="disabled"><a data-toggle="pill" href="#comfirm">Confirmar</a></li>
                         </ul>
                         <div style="display: none;" id="errors-alert" class="alert alert-danger">
@@ -31,12 +31,10 @@
                                 @include('subscribe.includes.address')
                             </div>
                             <div id="payment" class="tab-pane fade">
-                                <h3>Pagamento</h3>
-                                <p>Some content in menu 1.</p>
+                                @include('subscribe.includes.payment')
                             </div>
                             <div id="comfirm" class="tab-pane fade">
-                                <h3>Confirmar</h3>
-                                <p>Some content in menu 2.</p>
+                                @include('subscribe.includes.confirm')
                             </div>
                         </div>
                 </div>
@@ -47,35 +45,35 @@
 @endsection
 
 @section('scripts')
-        <script>
-            $(function(){
-                $(function($){
-                    $("#cep").mask("99999-999",{placeholder:"00000-000"});
-//                    $("#phone").mask("(999) 999-9999");
-//                    $("#tin").mask("99-9999999");
-//                    $("#ssn").mask("999-99-9999");
+    <script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    <script type="text/javascript">
+        PagSeguroDirectPayment.setSessionId('{{$paymentSession}}');
+    </script>
+    <script>
+            $('#payment-pill').removeClass('disabled');
+            $('a[href="#payment"]').tab('show');
+            function subscriptionAjaxError(response){
+                $('#errors-alert').show();
+                $('#errors-alert').html('');
+                $.each(response.responseJSON.errors,function(key,value){
+                    $.tmpl( "<li>${message}</li>", { "message" : value }).appendTo( '#errors-alert' );
                 });
+                console.log(response.responseJSON.errors);
+            }
+
+            $(function(){
                 $('.nav-pills li').click(function(event){
                     if ($(this).hasClass('disabled')) {
                         return false;
                     }
                 });
-                $('#form-address').submit(function(event){
-                    $('#errors-alert').hide();
-                    formSubmit(event,this,function(response){
-                        console.log(response);
-                    },function(response){
-                        $('#errors-alert').show();
-                        $('#errors-alert').html('');
-                        $.each(response.responseJSON.errors,function(key,value){
-                            $.tmpl( "<li>${message}</li>", { "message" : value }).appendTo( '#errors-alert' );
-                        });
-                        console.log(response.responseJSON.errors);
-                    });
-                    return false;
-                });
+
+                subscriptionAddressPage();
+                subscriptionPaymentPage();
+//                subscriptionPaymentConfirmationPage();
             });
         </script>
+
         <script id="errors-template">
 
         </script>
