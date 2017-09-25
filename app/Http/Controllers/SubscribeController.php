@@ -6,6 +6,7 @@ use App\Http\Requests\AddressAjaxRequest;
 use App\Http\Requests\ConfirmSubscriptionAjaxRequest;
 use App\Http\Requests\PaymentAjaxRequest;
 use App\PaymentGateway;
+use App\Plans;
 use Illuminate\Http\Request;
 
 class SubscribeController extends Controller
@@ -15,12 +16,13 @@ class SubscribeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request)
+    public function index()
     {
         $address = auth()->user()->address;
-        $paymentSession = PaymentGateway::getBrowserToken($request);
-
-        return view('subscribe.index',compact('address','paymentSession'));
+        $plans = Plans::whereActive(1)->get();
+        $paymentSession = PaymentGateway::getBrowserToken();
+        $paymentMethods = PaymentGateway::getPaymentMethods();
+        return view('subscribe.index',compact('address','plans','paymentSession','paymentMethods'));
     }
 
     public function addressAjax(AddressAjaxRequest $request)

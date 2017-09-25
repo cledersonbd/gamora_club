@@ -58,7 +58,6 @@
                 $.each(response.responseJSON.errors,function(key,value){
                     $.tmpl( "<li>${message}</li>", { "message" : value }).appendTo( '#errors-alert' );
                 });
-                console.log(response.responseJSON.errors);
             }
 
             $(function(){
