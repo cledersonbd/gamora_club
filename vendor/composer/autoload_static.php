@@ -338,6 +338,7 @@ class ComposerStaticInitaf18b450d75ae79d347313c8d9f04a89
         'App\\Http\\Requests\\ConfirmSubscriptionAjaxRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ConfirmSubscriptionAjaxRequest.php',
         'App\\Http\\Requests\\PaymentAjaxRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PaymentAjaxRequest.php',
         'App\\PaymentGateway' => __DIR__ . '/../..' . '/app/PaymentGateway.php',
+        'App\\Plans' => __DIR__ . '/../..' . '/app/Plans.php',
         'App\\Policies\\AdminPolicy' => __DIR__ . '/../..' . '/app/Policies/AdminPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

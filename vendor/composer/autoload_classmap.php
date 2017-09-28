@@ -29,6 +29,7 @@ return array(
     'App\\Http\\Requests\\ConfirmSubscriptionAjaxRequest' => $baseDir . '/app/Http/Requests/ConfirmSubscriptionAjaxRequest.php',
     'App\\Http\\Requests\\PaymentAjaxRequest' => $baseDir . '/app/Http/Requests/PaymentAjaxRequest.php',
     'App\\PaymentGateway' => $baseDir . '/app/PaymentGateway.php',
+    'App\\Plans' => $baseDir . '/app/Plans.php',
     'App\\Policies\\AdminPolicy' => $baseDir . '/app/Policies/AdminPolicy.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
