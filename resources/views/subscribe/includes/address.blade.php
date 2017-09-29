@@ -4,28 +4,28 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="street">Rua</label>
-                <input type="text" class="form-control" name="street" placeholder="Rua" value="{{$address->street}}">
+                <input type="text" class="form-control" name="street" placeholder="Rua" value="{{$address?$address->street:''}}">
             </div>
             <div class="form-group">
                 <label for="number">Número</label>
-                <input type="text" class="form-control" name="number" placeholder="Número" value="{{$address->number}}">
+                <input type="text" class="form-control" name="number" placeholder="Número" value="{{$address?$address->number:''}}">
             </div>
             <div class="form-group">
                 <label for="extra">Complemento</label>
-                <input type="text" id="extra" class="form-control" name="extra" placeholder="Complemento" value="{{$address->extra}}">
+                <input type="text" id="extra" class="form-control" name="extra" placeholder="Complemento" value="{{$address?$address->extra:''}}">
             </div>
             <div class="form-group">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" class="form-control" name="cep" placeholder="CEP" value="{{$address->cep}}">
+                <input type="text" id="cep" class="form-control" name="cep" placeholder="CEP" value="{{$address?$address->cep:''}}">
             </div>
             <div class="form-group row">
                 <div class="col-md-10 col-xs-8 col-lg-10">
                     <label for="city">Cidade</label>
-                    <input type="text" class="form-control" name="city" placeholder="City" value="{{$address->city}}">
+                    <input type="text" class="form-control" name="city" placeholder="City" value="{{$address?$address->city:''}}">
                 </div>
                 <div class="col-md-2 col-xs-4 col-lg-2">
                     <label for="state">Estado</label>
-                        <select class="form-control" name="state" data-value="{{$address->state}}" data-live-search="true">
+                        <select class="form-control" name="state" data-value="{{$address?$address->state:''}}" data-live-search="true">
                             <option value="">Selecione</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
