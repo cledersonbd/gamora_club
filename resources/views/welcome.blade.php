@@ -5,91 +5,91 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Clubens</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/outdefault.css') }}" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
+        <style type="text/css">
+            body {
+              background: url({{ asset('img/bg.png')}} ) no-repeat center center fixed;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              background-size: cover;
+              -o-background-size: cover;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Entrar</a>
-                        <a href="{{ route('register') }}">Cadastrar</a>
-                    @endauth
-                </div>
-            @endif
+        <div class="container-fluid flex-center full-height">
+            <div class="container-fluid row">
+                <div class="col-md-6 leftcol">
+                    <div class="logo">
+                        <img src="{{ asset('img/clubens.png') }}">
+                    </div>
+                    <div class="row slothin">
+                        <div class="col-md-6 col-md-offset-6">
+                            UM NOVO CONCEITO EM
+                        </div>
+                    </div>
+                    <div class="row slothick">
+                        <div class="col-md-6 col-md-offset-6">
+                            CLUBE DE BENEFÍCIOS
+                        </div>
+                    </div>
+                    <form method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                        <div class="form-group col-md-6 col-md-offset-6 nopadright">
+                            <label for="email">Email</label>
+                            <div>
+                                <input id="email" type="email" class="myinput" name="email" value="{{ old('email') }}" required autofocus disabled>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-md-offset-6 nopadright {{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password">Senha</label>
+                            <div >
+                                <input id="password" type="password" class="myinput" name="password" required disabled>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-6">
+                                <span class="thin tip">AINDA NÃO É CLUBENS?</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-6">
+                                <!-- <button type="submit" class="btn btn-primary">LOGIN</button> -->
+                                <a href="{{ route('register') }}" class="btn btn-primary">
+                                    <span>SEJA CLUBENS</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <a href="{{ route('password.request') }}" class="thick tip">ESQUECEU SUA SENHA?</a>
+                            </div>
+                        </div>
+                        -->
+                    </form>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="col-md-6 rightcol">
+                    <img src="{{ asset('img/cell.psd.png') }}">
                 </div>
             </div>
         </div>
+
     </body>
 </html>
