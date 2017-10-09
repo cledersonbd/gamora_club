@@ -48,7 +48,7 @@
                         <div class="form-group col-md-6 col-md-offset-6 nopadright">
                             <label for="email">Email</label>
                             <div>
-                                <input id="email" type="email" class="myinput" name="email" value="{{ old('email') }}" required autofocus disabled>
+                                <input id="email" type="email" class="myinput" name="email" value="{{ old('email') }}" required autofocus>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -59,7 +59,7 @@
                         <div class="form-group col-md-6 col-md-offset-6 nopadright {{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password">Senha</label>
                             <div >
-                                <input id="password" type="password" class="myinput" name="password" required disabled>
+                                <input id="password" type="password" class="myinput" name="password" required>
                             </div>
                             
                         </div>
@@ -74,6 +74,9 @@
                                 <a href="{{ route('register') }}" class="btn btn-primary">
                                     <span>SEJA CLUBENS</span>
                                 </a>
+                                <button type="submit" class="btn btn-primary">
+                                    ENTRAR
+                                </button>
                             </div>
                         </div>
                         <!--
@@ -83,6 +86,7 @@
                             </div>
                         </div>
                         -->
+
                     </form>
                 </div>
                 <div class="col-md-6 rightcol">
