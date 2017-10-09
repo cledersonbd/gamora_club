@@ -29,3 +29,13 @@ Route::get('/subscribe','SubscribeController@index');
 Route::post('/subscribe/address','SubscribeController@addressAjax');
 Route::post('/subscribe/payment','SubscribeController@paymentAjax');
 Route::post('/subscribe/confirm','SubscribeController@confirmAjax');
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('admin/','AdminController@index');
+    Route::get('admin/users','AdminController@users');
+    Route::get('admin/users/{id}/edit','AdminController@editUser');
+    Route::post('admin/users/{id}/update','AdminController@updateUser');
+    Route::get('admin/users/{id}/delete','AdminController@deleteUser');
+    Route::get('admin/users/new','AdminController@newUser');
+    Route::post('admin/users/new','AdminController@storeUser');
+});
