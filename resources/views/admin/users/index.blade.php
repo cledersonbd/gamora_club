@@ -29,6 +29,15 @@
                                                 <a href="/admin/users/{{$user->id}}/edit" class="btn btn-warning">
                                                     Edit
                                                 </a>
+                                                <a class="btn btn-success" href="/admin/{{$user->id}}/grant"
+                                                   onclick="event.preventDefault();
+                                                     document.getElementById('admin-form-{{$user->id}}').submit();">
+                                                    Admin
+                                                </a>
+
+                                                <form id="admin-form-{{$user->id}}" action="/admin/{{$user->id}}/grant" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -35,6 +35,8 @@ Route::post('/subscribe/confirm','SubscribeController@confirmAjax');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('admin/','AdminController@index');
+    Route::post('admin/{id}/grant','AdminController@grant');
+
     Route::get('admin/users','AdminUsersController@index');
     Route::get('admin/users/{id}/edit','AdminUsersController@edit');
     Route::post('admin/users/{id}/update','AdminUsersController@update');
