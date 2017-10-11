@@ -53,11 +53,8 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="/admin/users">Usuários</a>
+                                        <a href="/admin/plans">Planos</a>
 
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
                                     </li>
                                 </ul>
                             </li>

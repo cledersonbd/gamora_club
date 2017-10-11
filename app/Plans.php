@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plans extends Model
 {
-
+    protected $fillable = ['name','description','hash','active'];
 }
 
 ////URL create

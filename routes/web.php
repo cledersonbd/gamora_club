@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(auth()->guest())
+        return view('welcome');
+    else
+        return redirect()->to('/home');
 });
 
 Auth::routes();
@@ -32,10 +35,19 @@ Route::post('/subscribe/confirm','SubscribeController@confirmAjax');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('admin/','AdminController@index');
-    Route::get('admin/users','AdminController@users');
-    Route::get('admin/users/{id}/edit','AdminController@editUser');
-    Route::post('admin/users/{id}/update','AdminController@updateUser');
-    Route::get('admin/users/{id}/delete','AdminController@deleteUser');
-    Route::get('admin/users/new','AdminController@newUser');
-    Route::post('admin/users/new','AdminController@storeUser');
+    Route::get('admin/users','AdminUsersController@index');
+    Route::get('admin/users/{id}/edit','AdminUsersController@edit');
+    Route::post('admin/users/{id}/update','AdminUsersController@update');
+    Route::get('admin/users/{id}/delete','AdminUsersController@delete');
+    Route::get('admin/users/new','AdminUsersController@create');
+    Route::post('admin/users/new','AdminUsersController@store');
+
+    Route::get('admin/plans','AdminPlansController@index');
+    Route::get('admin/plans/{id}/edit','AdminPlansController@edit');
+    Route::post('admin/plans/{id}/update','AdminPlansController@update');
+    Route::get('admin/plans/{id}/delete','AdminPlansController@delete');
+    Route::get('admin/plans/new','AdminPlansController@create');
+    Route::post('admin/plans/new','AdminPlansController@store');
+
+
 });
