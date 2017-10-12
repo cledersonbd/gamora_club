@@ -43,22 +43,25 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp
-                        @if(auth()->user()->admin)
+                        @guest
+                        @else
+                                @if(auth()->user()->admin)
 
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Admin <span class="caret"></span>
-                                </a>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                            Admin <span class="caret"></span>
+                                        </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="/admin/users">Usuários</a>
-                                        <a href="/admin/plans">Planos</a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="/admin/users">Usuários</a>
+                                                <a href="/admin/plans">Planos</a>
 
+                                            </li>
+                                        </ul>
                                     </li>
-                                </ul>
-                            </li>
-                        @endif
+                                @endif
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
