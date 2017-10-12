@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Planos</div>
+                <div class="panel-heading">Pagamentos</div>
 
                     <div class="panel-body">
                             <div class="row">
@@ -15,19 +15,18 @@
                                     <tr>
                                         <th>Descrição</th>
                                         <th>Key</th>
-                                        <th>Pagseguro Hash</th>
                                         <th>Ativo</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($plans as $plan)
+                                    @foreach($payments as $payment)
                                         <tr>
-                                            <td>{{$plan->description}}</td>
-                                            <td>{{$plan->name}}</td>
-                                            <td>{{$plan->active}}</td>
+                                            <td>{{$payment->description}}</td>
+                                            <td>{{$payment->name}}</td>
+                                            <td>{{$payment->active}}</td>
                                             <td>
-                                                <a href="/admin/plans/{{$plan->id}}/edit" class="btn btn-warning">
+                                                <a href="/admin/payments/{{$payment->id}}/edit" class="btn btn-warning">
                                                     Edit
                                                 </a>
                                             </td>
@@ -36,7 +35,7 @@
                                     </tbody>
                                 </table>
                                 <td>
-                                    <a href="/admin/plans/new" class="btn btn-primary">
+                                    <a href="/admin/payments/new" class="btn btn-primary">
                                         Novo
                                     </a>
                                 </td>

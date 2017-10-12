@@ -20,8 +20,8 @@
                     <label for="state">Método de Pagamento</label>
                     <select id="payment-method" class="form-control" name="method" data-live-search="true">
                         <option value="">Selecione</option>
-                        @foreach($paymentMethods as $key => $method)
-                            <option value="{{$key}}">{{$method->description}}</option>
+                        @foreach($paymentMethods as $method)
+                            <option value="{{$method->id}}">{{$method->description}}</option>
                         @endforeach
                     </select>
                 </div>

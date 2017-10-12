@@ -51,6 +51,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('admin/plans/new', 'AdminPlansController@create');
         Route::post('admin/plans/new', 'AdminPlansController@store');
 
+        Route::get('admin/payments', 'AdminPaymentsController@index');
+        Route::get('admin/payments/{id}/edit', 'AdminPaymentsController@edit');
+        Route::post('admin/payments/{id}/update', 'AdminPaymentsController@update');
+        Route::get('admin/payments/{id}/delete', 'AdminPaymentsController@delete');
+        Route::get('admin/payments/new', 'AdminPaymentsController@create');
+        Route::post('admin/payments/new', 'AdminPaymentsController@store');
+
 
     });
 });

@@ -63,22 +63,6 @@ class PaymentGateway
         return $session;
     }
 
-    public static function getPaymentMethods()
-    {
-        return [
-            'boleto' => (object) [
-                'name' => 'boleto',
-                'description' => 'Boleto Bancário',
-                'class' => ''
-            ],
-            'credit-card' => (object) [
-                'name' => 'credit-card',
-                'description' => 'Cartão de Crédito',
-                'class' => ''
-            ]
-        ];
-    }
-
     public static function payWithCreditCard(Plans $plan,$data)
     {
         dd(1);

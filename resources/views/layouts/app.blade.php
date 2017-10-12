@@ -56,7 +56,7 @@
                                             <li>
                                                 <a href="/admin/users">Usuários</a>
                                                 <a href="/admin/plans">Planos</a>
-
+                                                <a href="/admin/payments">Payments</a>
                                             </li>
                                         </ul>
                                     </li>
