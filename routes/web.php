@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/login',function(){return redirect()->to('/');})->name('login');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -28,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/settings/phone', 'SettingsController@phone');
     Route::post('/settings/change-password', 'SettingsController@changePassword');
 
-    Route::get('/subscribe', 'SubscribeController@index');
+    Route::get('/subscribe', 'SubscribeController@index')->name('subscribe');
     Route::post('/subscribe/address', 'SubscribeController@addressAjax');
     Route::post('/subscribe/payment', 'SubscribeController@paymentAjax');
     Route::post('/subscribe/confirm', 'SubscribeController@confirmAjax');

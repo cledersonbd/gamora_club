@@ -28,12 +28,15 @@ class SubscribeController extends Controller
 
     public function addressAjax(AddressAjaxRequest $request)
     {
-        $address = auth()->user()->address()->first();
+        $user = auth()->user();
+        $address = $user->address()->first();
         if(!$address){
             $address = auth()->user()->address()->create($request->all());
         }else{
             $address->update($request->all());
         }
+        $user->phone = $request->input('phone','');
+        $user->save();
         return $address;
     }
 

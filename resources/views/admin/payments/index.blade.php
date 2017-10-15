@@ -16,6 +16,7 @@
                                         <th>Descrição</th>
                                         <th>Key</th>
                                         <th>Ativo</th>
+                                        <th>View</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -25,6 +26,7 @@
                                             <td>{{$payment->description}}</td>
                                             <td>{{$payment->name}}</td>
                                             <td>{{$payment->active}}</td>
+                                            <td>{{$payment->view}}</td>
                                             <td>
                                                 <a href="/admin/payments/{{$payment->id}}/edit" class="btn btn-warning">
                                                     Edit

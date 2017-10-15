@@ -79,3 +79,11 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+    <script>
+    $(function($){
+        $("[name='phone']").mask("(99)9999-9999?9",{placeholder:"00000-000"});
+    });
+    </script>
+@endsection

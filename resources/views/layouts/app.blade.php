@@ -78,6 +78,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ route('subscribe') }}">Assinar</a>
                                         <a href="{{ route('settings') }}">Minha Conta</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

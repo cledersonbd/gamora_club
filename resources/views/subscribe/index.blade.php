@@ -21,7 +21,7 @@
                         <ul class="nav nav-pills">
                             <li class="active"><a data-toggle="pill" href="#address">Localização</a></li>
                             <li id="payment-pill" class="disabled"><a data-toggle="pill" href="#payment">Pagamento</a></li>
-                            <li class="disabled"><a data-toggle="pill" href="#comfirm">Confirmar</a></li>
+                            <li id="confirm-pill" class="disabled"><a data-toggle="pill" href="#comfirm">Confirmar</a></li>
                         </ul>
                         <div style="display: none;" id="errors-alert" class="alert alert-danger">
 
@@ -50,30 +50,30 @@
         PagSeguroDirectPayment.setSessionId('{{$paymentSession}}');
     </script>
     <script>
-            $('#payment-pill').removeClass('disabled');
-            $('a[href="#payment"]').tab('show');
-            function subscriptionAjaxError(response){
-                $('#errors-alert').show();
-                $('#errors-alert').html('');
-                $.each(response.responseJSON.errors,function(key,value){
-                    $.tmpl( "<li>${message}</li>", { "message" : value }).appendTo( '#errors-alert' );
-                });
-            }
-
-            $(function(){
-                $('.nav-pills li').click(function(event){
-                    if ($(this).hasClass('disabled')) {
-                        return false;
-                    }
-                });
-
-                subscriptionAddressPage();
-                subscriptionPaymentPage();
-//                subscriptionPaymentConfirmationPage();
+        $('#payment-pill').removeClass('disabled');
+        $('a[href="#payment"]').tab('show');
+        function subscriptionAjaxError(response){
+            $('#errors-alert').show();
+            $('#errors-alert').html('');
+            $.each(response.responseJSON.errors,function(key,value){
+                $.tmpl( "<li>${message}</li>", { "message" : value }).appendTo( '#errors-alert' );
             });
-        </script>
+        }
 
-        <script id="errors-template">
+        $(function(){
+            $('.nav-pills li').click(function(event){
+                if ($(this).hasClass('disabled')) {
+                    return false;
+                }
+            });
 
-        </script>
+            subscriptionAddressPage();
+            subscriptionPaymentPage();
+            subscriptionPaymentConfirmationPage();
+        });
+    </script>
+
+    <script id="errors-template">
+
+    </script>
 @endsection

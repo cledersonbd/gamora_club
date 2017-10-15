@@ -3,6 +3,10 @@
         <form id="form-address" action="/subscribe/address">
             {{ csrf_field() }}
             <div class="form-group">
+                <label for="street">Telefone</label>
+                <input type="text" class="form-control" name="phone" placeholder="Telefone" value="{{auth()->user()->phone}}">
+            </div>
+            <div class="form-group">
                 <label for="street">Rua</label>
                 <input type="text" class="form-control" name="street" placeholder="Rua" value="{{$address?$address->street:''}}">
             </div>
@@ -67,6 +71,7 @@
         $(function($){
             $("#form-address [name='state']").val($("#form-address [name='state']").data('value'));
             $("#cep").mask("99999-999",{placeholder:"00000-000"});
+            $("[name='phone']").mask("(99)9999-9999?9",{placeholder:"(00)0000-00000"});
         });
         $('#form-address').submit(function(event){
             $('#errors-alert').hide();

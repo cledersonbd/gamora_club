@@ -30,6 +30,10 @@
                                         <label for="active">Ativo</label>
                                         <input type="text" class="form-control" name="active" placeholder="Ativo 0 ou 1" value="{{$payment->active}}">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="hash">View</label>
+                                        <input type="text" class="form-control" name="view" placeholder="View" value="{{$payment->view}}">
+                                    </div>
 
 
                                     <button type="submit" class="btn btn-default btn-primary">Atualizar</button>

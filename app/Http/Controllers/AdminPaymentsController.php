@@ -28,6 +28,7 @@ class AdminPaymentsController extends Controller
         $payment->name = $request->input("name",'');
         $payment->class = $request->input("class",'');
         $payment->active = $request->input("active",0);
+        $payment->view = $request->input("view",0);
 
 
         $payment->save();

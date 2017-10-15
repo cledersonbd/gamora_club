@@ -26,6 +26,9 @@ class PaymentAjaxRequest extends FormRequest
         return [
             'plan'=>'required',
             'method'=>'required',
+            'cpf'=>'required',
+            'flag'=>'required',
+            'token'=>'required',
         ];
     }
 
@@ -33,7 +36,10 @@ class PaymentAjaxRequest extends FormRequest
     {
         return [
             "plan.required" => 'Você precisa escolher um plano',
-            "method.required" => 'Você precisa escolher um método de pagamento'
+            "method.required" => 'Você precisa escolher um método de pagamento',
+            "cpf.required" => 'CPF é obrigatório',
+            "flag.required" => 'Não foi possível encontrar sua bandeira',
+            "token.required" => 'Seu cartão não foi autorizado'
         ];
     }
 
