@@ -14,9 +14,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-{{--    <link href="{{ asset('css/form.css') }}" rel="stylesheet">--}}
-{{--    <link href="{{ asset('css/style.css') }}" rel="stylesheet">--}}
+{{--    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <style>
         .alert-danger {
             background-color: rgba(255, 0, 16, 0.51);
@@ -40,7 +40,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{--<span id="clubens-nav">Clubens</span>--}}
+                        <img style="max-width: 100%; max-height: 100%;" src="/img/clubens.png" alt="">
                     </a>
                 </div>
 
